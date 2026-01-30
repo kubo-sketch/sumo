@@ -1,18 +1,15 @@
+"use client";
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Product() {
-    // Add decode animation
-    if (typeof window !== "undefined") {
-        const gsap = require("gsap").default;
-        const ScrollTrigger = require("gsap/ScrollTrigger").ScrollTrigger;
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Simple inline effect for this component instance
-        // In a strictly React way, we should use useEffect, but for brevity/interactivity with existing layout:
-    }
-
     // Using simple useEffect for the animation
-    const React = require("react");
-    React.useEffect(() => {
-        const gsap = require("gsap").default;
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
+        }
+
         gsap.to(".decode-product", {
             scrollTrigger: {
                 trigger: "#product",

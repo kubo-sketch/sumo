@@ -1,7 +1,11 @@
+"use client";
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default function Tokenomics() {
-    const React = require("react");
-    React.useEffect(() => {
-        const gsap = require("gsap").default;
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         gsap.to(".decode-tokenomics", {
             scrollTrigger: {
                 trigger: "#tokenomics",
