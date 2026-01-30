@@ -16,6 +16,13 @@ export default function Ecosystem() {
             trigger: "#ecosystem",
             start: "top center",
             onEnter: () => {
+                // Decode Text
+                gsap.to(".decode-ecosystem", {
+                    duration: 1,
+                    text: { value: "EAT. FIGHT. BURN.", delimiter: "" },
+                    ease: "none"
+                });
+
                 if (liquidRef.current) {
                     gsap.to(liquidRef.current, { height: "85%", duration: 2.5, ease: "elastic.out(1, 0.5)" });
                 }
@@ -45,7 +52,7 @@ export default function Ecosystem() {
             </div>
 
             <div className="relative z-10 text-center w-full max-w-4xl px-4">
-                <h2 className="text-5xl md:text-7xl text-white mb-4 font-oswald">LOADING...</h2>
+                <h2 className="text-5xl md:text-7xl text-white mb-4 font-oswald decode-ecosystem">LOADING...</h2>
                 <p className="text-neon-cyan font-mono mb-12">POWERED BY REAL MONEY (REVENUE)</p>
 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12 text-sm font-mono text-gray-400">

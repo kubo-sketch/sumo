@@ -35,6 +35,17 @@ export default function RootLayout({
           <CustomCursor />
           <HUD />
           <div className="fixed inset-0 pointer-events-none z-[9998] opacity-40 mix-blend-overlay scanlines-global" aria-hidden="true" />
+
+          {/* Global SVG Filters */}
+          <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }} version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="heat">
+                <feTurbulence type="fractalNoise" baseFrequency="0.01 0.02" numOctaves="1" result="warp" />
+                <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="20" in="SourceGraphic" in2="warp" />
+              </filter>
+            </defs>
+          </svg>
+
           {children}
         </SmoothScroll>
       </body>

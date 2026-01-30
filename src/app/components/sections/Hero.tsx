@@ -47,6 +47,13 @@ export default function Hero() {
                 overwrite: 'auto'
             });
         }
+
+        // Animate Heat Filter
+        gsap.to("feDisplacementMap", {
+            attr: { scale: Math.abs(x) + Math.abs(y) + 15 },
+            duration: 0.5,
+            overwrite: 'auto'
+        });
     };
 
     return (
@@ -75,7 +82,7 @@ export default function Hero() {
             </div>
 
             <div className="relative z-10 text-center mix-blend-difference flex flex-col items-center">
-                <h1 ref={titleRef} className="text-[15vw] md:text-[20vw] leading-none font-bold text-transparent stroke-white opacity-0 text-stroke-white" >
+                <h1 ref={titleRef} className="liquid-text text-[15vw] md:text-[20vw] leading-none font-bold text-transparent stroke-white opacity-0 text-stroke-white text-metal" >
                     $SMO
                 </h1>
                 <p className="text-white font-mono text-xl md:text-4xl tracking-[0.2em] mt-4 decode-target-hero">

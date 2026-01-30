@@ -6,6 +6,19 @@ export default function Footer() {
     const whiteoutRef = useRef<HTMLDivElement>(null);
     const welcomeTextRef = useRef<HTMLHeadingElement>(null);
 
+    useEffect(() => {
+        // Decode Footer Title
+        gsap.to(".decode-footer", {
+            scrollTrigger: {
+                trigger: "#cta",
+                start: "top 80%",
+            },
+            duration: 1,
+            text: { value: "JOIN THE HEYA", delimiter: "" },
+            ease: "none"
+        });
+    }, []);
+
     const handleSaltRitual = () => {
         // Create Salt particles
         const container = document.body;
@@ -48,7 +61,7 @@ export default function Footer() {
     return (
         <section id="cta" className="relative min-h-[80vh] flex flex-col items-center justify-center bg-pitch-black overflow-hidden">
             <div className="relative z-10 text-center px-4">
-                <h2 className="text-6xl md:text-9xl font-oswald text-white mb-12">
+                <h2 className="text-6xl md:text-9xl font-oswald text-white mb-12 decode-footer">
                     WAITING...
                 </h2>
 

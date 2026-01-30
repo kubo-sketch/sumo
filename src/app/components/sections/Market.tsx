@@ -13,6 +13,17 @@ export default function Market() {
     const beamRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // Text Decode Animation
+        gsap.to(".decode-market", {
+            scrollTrigger: {
+                trigger: "#market",
+                start: "top 80%",
+            },
+            duration: 1,
+            text: { value: "THE LAST BLUE OCEAN", delimiter: "" },
+            ease: "none"
+        });
+
         // Beam Scroll Animation
         gsap.to(beamRef.current, {
             scrollTrigger: {
@@ -29,7 +40,7 @@ export default function Market() {
     return (
         <section id="market" ref={sectionRef} className="relative min-h-screen bg-pitch-black py-20 overflow-hidden border-t border-gray-900">
             <div className="container mx-auto px-4 relative z-10 h-full flex flex-col items-center justify-center">
-                <h2 className="text-5xl md:text-8xl mb-4 text-center text-white font-oswald">LOADING DATA...</h2>
+                <h2 className="text-5xl md:text-8xl mb-4 text-center text-white font-oswald decode-market">LOADING DATA...</h2>
                 <p className="text-gray-400 font-mono text-center mb-12 max-w-2xl">
                     SUMO IS THE UNTAPPED GIANT.<br />
                     <span className="text-neon-cyan">AS SEEN ON ABEMA</span>

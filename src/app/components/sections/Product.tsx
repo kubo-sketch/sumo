@@ -1,4 +1,29 @@
 export default function Product() {
+    // Add decode animation
+    if (typeof window !== "undefined") {
+        const gsap = require("gsap").default;
+        const ScrollTrigger = require("gsap/ScrollTrigger").ScrollTrigger;
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Simple inline effect for this component instance
+        // In a strictly React way, we should use useEffect, but for brevity/interactivity with existing layout:
+    }
+
+    // Using simple useEffect for the animation
+    const React = require("react");
+    React.useEffect(() => {
+        const gsap = require("gsap").default;
+        gsap.to(".decode-product", {
+            scrollTrigger: {
+                trigger: "#product",
+                start: "top 80%",
+            },
+            duration: 1,
+            text: { value: "365-DAY BATTLE", delimiter: "" },
+            ease: "none"
+        });
+    }, []);
+
     return (
         <section id="product" className="relative min-h-screen bg-pitch-black py-20 border-y border-neon-cyan/30">
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
@@ -6,7 +31,7 @@ export default function Product() {
                     <div className="bg-neon-cyan/10 border border-neon-cyan p-2 inline-block mb-4 text-xs animate-pulse">
                         PROTOCOL: ACTIVE
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-oswald mb-6 text-white">
+                    <h2 className="text-4xl md:text-6xl font-oswald mb-6 text-white decode-product">
                         CONNECTING...
                     </h2>
                     <p className="text-2xl text-white mb-6">SUMO NEVER SLEEPS.</p>

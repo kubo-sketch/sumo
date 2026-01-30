@@ -1,8 +1,22 @@
 export default function Tokenomics() {
+    const React = require("react");
+    React.useEffect(() => {
+        const gsap = require("gsap").default;
+        gsap.to(".decode-tokenomics", {
+            scrollTrigger: {
+                trigger: "#tokenomics",
+                start: "top 80%",
+            },
+            duration: 1,
+            text: { value: "HEAVYWEIGHT ALLOCATION", delimiter: "" },
+            ease: "none"
+        });
+    }, []);
+
     return (
         <section id="tokenomics" className="relative py-20 bg-dark-metal border-b border-gray-900">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-4xl md:text-6xl text-white mb-12 font-oswald">
+                <h2 className="text-4xl md:text-6xl text-white mb-12 font-oswald decode-tokenomics">
                     CALCULATING...
                 </h2>
 
